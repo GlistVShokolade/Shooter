@@ -6,17 +6,17 @@ public abstract class Weapon : MonoBehaviour
 {
     protected bool CanAttack { get; private set; } = true;
 
-    [SerializeField] private float _attackDamage;
-    [SerializeField] private float _attackDistance;
-    [SerializeField] private float _attackRate;
+    [SerializeField] private int _attackDamage;
+    [SerializeField] private int _attackDistance;
+    [SerializeField] private int _attackRate;
     [Space]
     [SerializeField] private LayerMask _searchLayers;
     [Space]
     [SerializeField] private float _spreadValue;
 
-    public float AttackDamage => _attackDamage;
-    public float AttackRate => _attackRate;
-    public float AttackDistance => _attackDistance;
+    public int AttackDamage => _attackDamage;
+    public int AttackRate => _attackRate;
+    public int AttackDistance => _attackDistance;
     public LayerMask SearchLayers => _searchLayers;
     public float SpreadValue => _spreadValue;
 

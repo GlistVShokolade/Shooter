@@ -1,3 +1,5 @@
+using System.Xml;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Pistol : Weapon
@@ -16,6 +18,12 @@ public class Pistol : Weapon
         {
             return;
         }
+        if (hit.transform.TryGetComponent(out IWeaponVisitor visitor) == false)
+        {
+            return;
+        }
+
+        visitor.Visit(this, hit);
     }
 
     public override bool TryAttack()
