@@ -13,7 +13,6 @@ public class Ammo : MonoBehaviour
 
     private int _savedAmmo;
 
-    public int StartAmmo => _startAmmo;
     public int MaxAmmo => _maxAmmo;
     
     public int CurrentAmmo
