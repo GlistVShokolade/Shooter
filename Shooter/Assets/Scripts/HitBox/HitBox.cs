@@ -8,16 +8,18 @@ public class HitBox : MonoBehaviour, IWeaponVisitor
 
     public Health Health => _health;
 
-    public void Visit(Pistol pistol, RaycastHit hit)
-    {
-        Debug.Log("Выстрел из пистолета!");
-
-        _health.ApplyDamage(pistol.AttackDamage);
-        SpawnDecal(hit.normal, hit.point);
-    }
-
     public GameObject SpawnDecal(Vector3 normal, Vector3 position)
     {
         return Instantiate(_decal, position, Quaternion.FromToRotation(position, -normal));
+    }
+
+    public void Visit(RifleAttack rifle, RaycastHit hit)
+    {
+        print("Попадание с винтовки");
+    }
+
+    public void Visit(ShotgunAttack shotgun, RaycastHit hit)
+    {
+        print("Попадание с дробовика");
     }
 }

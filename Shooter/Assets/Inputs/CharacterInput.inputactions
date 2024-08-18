@@ -194,7 +194,7 @@
                     "path": "<Keyboard>/r",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Computer",
                     "action": "Reload",
                     "isComposite": false,
                     "isPartOfComposite": false
