@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
+    private const float MaxRotationX = 90f;
+    private const float MinRotationX = -MaxRotationX;
+
     private float _rotationX;
 
     [SerializeField] private float _sensitivity;
@@ -16,19 +19,31 @@ public class CameraMovement : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    private void LateUpdate()
+    private void Update()
     {
-        Rotate();
+        TryRotate();
     }
 
-    private void Rotate()
+    private bool TryRotate()
     {
-        Vector2 currentMouseDelta = MouseDelta * (_sensitivity * Time.deltaTime);
+        Vector2 mouseDelta = MouseDelta * (_sensitivity * Time.deltaTime);
 
-        _rotationX -= currentMouseDelta.y;
-        _rotationX = Mathf.Clamp(_rotationX, -90f, 90f);
+        if (mouseDelta != Vector2.zero)
+        {
+            Rotate(mouseDelta);
 
-        _character.Rotate(Vector3.up * currentMouseDelta.x);
+            return true;
+        }
+
+        return false;
+    }
+
+    private void Rotate(Vector2 mouseDelta)
+    {
+        _rotationX -= mouseDelta.y;
+        _rotationX = Mathf.Clamp(_rotationX, MinRotationX, MaxRotationX);
+
+        _character.Rotate(Vector3.up * mouseDelta.x);
         transform.localRotation = Quaternion.Euler(_rotationX, 0f, 0f);
     }
 }

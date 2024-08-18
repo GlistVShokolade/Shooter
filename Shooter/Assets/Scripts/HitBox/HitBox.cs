@@ -4,13 +4,13 @@ public class HitBox : MonoBehaviour, IWeaponVisitor
 {
     [SerializeField] private Health _health;
     [Space]
-    [SerializeField] private GameObject _decal;
+    [SerializeField] private ParticleSystem _particle;
 
     public Health Health => _health;
 
     public GameObject SpawnDecal(Vector3 normal, Vector3 position)
     {
-        return Instantiate(_decal, position, Quaternion.FromToRotation(position, -normal));
+        return Instantiate(_particle.gameObject, position, Quaternion.FromToRotation(position, -normal));
     }
 
     public void Visit(RifleAttack rifle, RaycastHit hit)

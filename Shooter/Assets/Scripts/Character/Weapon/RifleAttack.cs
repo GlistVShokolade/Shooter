@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-public class RifleAttack : WeaponRaycastAttack
+public class RifleAttack : WeaponRaycastAttack, IAmmoBehavioer
 {
-    [SerializeField] private Ammo _ammo;
+    [SerializeField] public Ammo Ammo { get; set; }
 
     public override bool TryAttack()
     {
@@ -10,7 +10,7 @@ public class RifleAttack : WeaponRaycastAttack
         {
             return false;
         }
-        if (_ammo.CurrentAmmo == 0)
+        if (Ammo.CurrentAmmo == 0)
         {
             return false;
         }
@@ -28,7 +28,7 @@ public class RifleAttack : WeaponRaycastAttack
     {
         StartDelay();
 
-        _ammo.TakeAmmo(1);
+        Ammo.TakeAmmo(1);
 
         RaycastHit hit = GetHit();
         IWeaponVisitor visitor = ScanHit(hit);
