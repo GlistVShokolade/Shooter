@@ -42,7 +42,7 @@ public class Inventory : MonoBehaviour
 
     public bool HasWeapon(AmmoType ammoType)
     {
-        return _slots.Any(slot => slot.Weapon.Attack is IAmmoAttack && (slot.Weapon.Attack as IAmmoAttack).Ammo.Type == ammoType);
+        return _slots.Any(slot => slot.Weapon.Attack is IAmmoAttack && (slot.Weapon.Attack as IAmmoAttack).Ammo.Type == ammoType && slot.IsAviable);
     }
     
     public void AddAmmo(AmmoType type, int amount)
