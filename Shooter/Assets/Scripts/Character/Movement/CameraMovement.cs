@@ -7,14 +7,14 @@ public class CameraMovement : MonoBehaviour
 
     private float _rotationX;
 
-    [SerializeField] private float _sensitivity;
+    [SerializeField, Min(0f)] private float _sensitivity;
     [Space]
     [SerializeField] private Transform _character;
 
     private CharacterInput Input => Character.Instance.Input;
     private Vector2 MouseDelta => Input.Movement.MouseDelta.ReadValue<Vector2>();
 
-    private void Awake()
+    private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
     }
@@ -44,6 +44,7 @@ public class CameraMovement : MonoBehaviour
         _rotationX = Mathf.Clamp(_rotationX, MinRotationX, MaxRotationX);
 
         _character.Rotate(Vector3.up * mouseDelta.x);
+
         transform.localRotation = Quaternion.Euler(_rotationX, 0f, 0f);
     }
 }

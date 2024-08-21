@@ -11,7 +11,7 @@ public abstract class MovementLogic
     protected CharacterController _controller;
     protected CharacterInput Input => Character.Instance.Input;
 
-    public abstract void Execute();
+    public abstract void Update();
 
     public void SetDirection(float x, float y, float z)
     {

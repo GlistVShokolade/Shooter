@@ -4,23 +4,24 @@ public class Character : MonoBehaviour
 {
     public static Character Instance;
 
-    public Camera Camera { get; private set; }
+    [field: SerializeField] public Camera Camera { get; private set; }
+    [field: SerializeField] public Health Health { get; private set; }
+
     public CharacterInput Input { get; private set; }
 
     private void OnEnable()
     {
         if (Instance == null)
         {
-            Camera = Camera.main;
-            Input = new CharacterInput();
-            Input.Enable();
-
             Instance = this;
         }
         else
         {
             Destroy(gameObject);
         }
+
+        Input = new CharacterInput();
+        Input.Enable();
     }
 
     private void OnDisable()

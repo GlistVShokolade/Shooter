@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 
-public class RifleAttack : WeaponRaycastAttack, IAmmoBehavioer
+public class ShotgunAttack : WeaponRaycastAttack, IAmmoAttack
 {
-    [SerializeField] public Ammo Ammo { get; set; }
+    [field: SerializeField] public Ammo Ammo { get; set; }
+    [Space]
+    [SerializeField, Min(1)] private int _shotCount;
 
     public override bool TryAttack()
     {
@@ -30,15 +32,18 @@ public class RifleAttack : WeaponRaycastAttack, IAmmoBehavioer
 
         Ammo.TakeAmmo(1);
 
-        RaycastHit hit = GetHit();
-        IWeaponVisitor visitor = ScanHit(hit);
-
-        if (visitor == null)
+        for (int i = 0; i < _shotCount; i++)
         {
-            return;
-        }
+            RaycastHit hit = GetHit();
+            IWeaponVisitor visitor = ScanHit(hit);
 
-        Accept(visitor, hit);
+            if (visitor == null)
+            {
+                return;
+            }
+
+            Accept(visitor, hit);
+        }
     }
 
     protected override void Accept(IWeaponVisitor visitor, RaycastHit hit) => visitor.Visit(this, hit);

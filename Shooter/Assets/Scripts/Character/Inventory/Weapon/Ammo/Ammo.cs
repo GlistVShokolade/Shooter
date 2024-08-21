@@ -3,16 +3,18 @@ using UnityEngine;
 
 public class Ammo : MonoBehaviour
 {
+    private int _savedAmmo;
+    private int _currentAmmo;
+
     [Header("Ammo")]
     [SerializeField] private int _startAmmo;
     [SerializeField] private int _maxAmmo;
-
-    private int _savedAmmo, _currentAmmo;
+    [Space]
+    [SerializeField] private AmmoType _type;
 
     public int MaxAmmo => _maxAmmo;
     public int SavedAmmo => _savedAmmo;
-
-    public bool HasAmmo => (_currentAmmo + _savedAmmo) > 0;
+    public AmmoType Type => _type;
 
     public int CurrentAmmo
     {
@@ -22,9 +24,11 @@ public class Ammo : MonoBehaviour
 
     public event Action AmmoChanged;
 
-    private void Awake()
+    private void Start()
     {
         CurrentAmmo = _startAmmo;
+
+        AmmoChanged?.Invoke();
     }
 
     public void TakeAmmo(int amount)

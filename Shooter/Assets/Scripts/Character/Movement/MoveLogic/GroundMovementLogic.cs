@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class GroundMovementLogic : MovementLogic
 {
@@ -22,7 +21,7 @@ public class GroundMovementLogic : MovementLogic
         _transform = transform;
     }
 
-    public override void Execute()
+    public override void Update()
     {
         _currentSpeed = GetCurrentSpeed();
 
@@ -76,21 +75,18 @@ public class GroundMovementLogic : MovementLogic
         return true;
     }
 
-    private void Jump()
-    {
-        SetDirection(_moveDirection.x, _jumpForce, _moveDirection.z);
-    }
-
     private void Move(Vector2 direction)
     {
         Vector3 inputDirection = new Vector3(direction.x, 0f, direction.y);
 
-        inputDirection = _transform.TransformDirection(inputDirection);
+        inputDirection = _transform.TransformDirection(inputDirection) * _currentSpeed;
 
-        float x = inputDirection.x * _currentSpeed;
-        float z = inputDirection.z * _currentSpeed;
+        SetDirection(inputDirection.x, _moveDirection.y, inputDirection.z);
+    }
 
-        SetDirection(x, _moveDirection.y, z);
+    private void Jump()
+    {
+        SetDirection(_moveDirection.x, _jumpForce, _moveDirection.z);
     }
 
     private void ApplyGravity()

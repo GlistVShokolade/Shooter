@@ -1,4 +1,4 @@
-﻿public interface IAmmoBehavioer
+﻿public interface IAmmoAttack
 {
     public Ammo Ammo { get; set; }
 }

@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Health : MonoBehaviour, IDamagable
 {
+    private int _currentHealth;
+
     [SerializeField] private int _startHealth;
     [SerializeField] private int _maxHealth;
 
@@ -12,31 +14,53 @@ public class Health : MonoBehaviour, IDamagable
     {
         get
         {
-            return CurrentHealth;
+            return _currentHealth;
         }
         private set
         {
-            CurrentHealth = Math.Clamp(value, 0, _maxHealth);
+            _currentHealth = Math.Clamp(value, 0, _maxHealth);
         }
     }
 
     public event Action HealthIsOver;
     public event Action HealthChanged;
 
-    public void ApplyDamage(int damage)
+    private void Start()
     {
-        if (damage < 0)
-        {
-            throw new ArgumentOutOfRangeException(nameof(damage));
-        }
+        AddHealth(_startHealth);
 
-        CurrentHealth -= damage;
-
-        HealthChanged?.Invoke();
-
-        if (CurrentHealth == 0)
+        if (_currentHealth == 0)
         {
             HealthIsOver?.Invoke();
         }
+    }
+
+    public void ApplyDamage(int amount)
+    {
+        if (amount < 0)
+        {
+            throw new ArgumentOutOfRangeException(nameof(amount));
+        }
+
+        CurrentHealth -= amount;
+
+        HealthChanged?.Invoke();
+
+        if (_currentHealth == 0)
+        {
+            HealthIsOver?.Invoke();
+        }
+    }
+
+    public void AddHealth(int amount)
+    {
+        if (amount < 0)
+        {
+            throw new ArgumentOutOfRangeException(nameof(amount));
+        }
+
+        CurrentHealth += amount;
+
+        HealthChanged?.Invoke();
     }
 }
