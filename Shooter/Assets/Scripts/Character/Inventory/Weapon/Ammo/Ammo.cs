@@ -39,6 +39,8 @@ public class Ammo : MonoBehaviour
         }
 
         CurrentAmmo -= amount;
+
+        AmmoChanged?.Invoke();
     }
 
     public void AddAmmo(int amount)
@@ -49,5 +51,7 @@ public class Ammo : MonoBehaviour
         }
 
         _savedAmmo += amount;
+
+        AmmoChanged?.Invoke();
     }
 }

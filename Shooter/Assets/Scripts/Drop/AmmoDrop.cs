@@ -17,18 +17,13 @@ public class AmmoDrop : Drop
 
     public override bool TryPick()
     {
-        print("Попытка подобрать дроп!");
-
         if (Inventory.HasWeapon(_type))
         {
-            print("=)");
-
             Pick();
 
             return true;
         }
 
-        print("=(");
         return false;
     }
 }

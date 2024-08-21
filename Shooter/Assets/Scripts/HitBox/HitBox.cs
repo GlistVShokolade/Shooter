@@ -10,7 +10,7 @@ public class HitBox : MonoBehaviour, IWeaponVisitor
 
     public GameObject SpawnDecal(Vector3 normal, Vector3 position)
     {
-        return Instantiate(_particle.gameObject, position, Quaternion.FromToRotation(position, -normal));
+        return Instantiate(_particle.gameObject, position, Quaternion.LookRotation(normal));
     }
 
     public void Visit(RifleAttack rifle, RaycastHit hit)

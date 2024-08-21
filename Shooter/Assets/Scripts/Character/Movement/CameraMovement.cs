@@ -19,18 +19,18 @@ public class CameraMovement : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    private void Update()
+    private void LateUpdate()
     {
         TryRotate();
     }
 
     private bool TryRotate()
     {
-        Vector2 mouseDelta = MouseDelta * (_sensitivity * Time.deltaTime);
+        Vector2 cachedMouseDelta = MouseDelta;
 
-        if (mouseDelta != Vector2.zero)
+        if (cachedMouseDelta != Vector2.zero)
         {
-            Rotate(mouseDelta);
+            Rotate(cachedMouseDelta * (_sensitivity * Time.fixedDeltaTime));
 
             return true;
         }

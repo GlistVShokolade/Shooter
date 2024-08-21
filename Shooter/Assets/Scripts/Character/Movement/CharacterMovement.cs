@@ -8,7 +8,7 @@ public class CharacterMovement : MonoBehaviour
     private CharacterController _controller;
 
     [Header("Speeds")]
-    [SerializeField, Min(0)] private float _moveSpeed;
+    [SerializeField, Min(0)] private float _walkSpeed;
     [SerializeField, Min(0)] private float _runSpeed;
     [Header("Jump")]
     [SerializeField, Min(0)] private float _jumpForce;
@@ -20,7 +20,7 @@ public class CharacterMovement : MonoBehaviour
 
     private void Start()
     {
-        _currentLogic = new GroundMovementLogic(_moveSpeed, _runSpeed, _jumpForce, transform, _controller);
+        _currentLogic = new GroundMovementLogic(_walkSpeed, _runSpeed, _jumpForce, transform, _controller);
     }
 
     private void Update()

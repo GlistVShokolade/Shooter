@@ -10,10 +10,10 @@ public abstract class WeaponAttack : MonoBehaviour
     [SerializeField] private LayerMask _searchLayers;
 
     public float Damage => _damage;
+    protected LayerMask SearchLayers => _searchLayers;
 
     protected bool CanAttack { get; private set; } = true;
 
-    protected LayerMask SearchLayers => _searchLayers;
     protected CharacterInput Input => Character.Instance.Input;
 
     public abstract bool TryAttack();

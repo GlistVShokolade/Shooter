@@ -6,15 +6,15 @@ public class GroundMovementLogic : MovementLogic
 
     private readonly Transform _transform;
 
-    private readonly float _moveSpeed;
+    private readonly float _walkSpeed;
     private readonly float _runSpeed;
     private readonly float _jumpForce;
 
     private readonly Vector3 _gravity = new Vector3(0f, -9.81f, 0f);
 
-    public GroundMovementLogic(float moveSpeed, float runSpeed, float jumpForce, Transform transform, CharacterController controller) : base(controller)
+    public GroundMovementLogic(float walkSpeed, float runSpeed, float jumpForce, Transform transform, CharacterController controller) : base(controller)
     {
-        _moveSpeed = moveSpeed;
+        _walkSpeed = walkSpeed;
         _runSpeed = runSpeed;
         _jumpForce = jumpForce;
 
@@ -35,7 +35,7 @@ public class GroundMovementLogic : MovementLogic
 
     private float GetCurrentSpeed()
     {
-        return Input.Movement.Run.IsPressed() ? _runSpeed : _jumpForce;
+        return Input.Movement.Run.IsPressed() ? _runSpeed : _walkSpeed;
     }
 
     private bool TrySquat()

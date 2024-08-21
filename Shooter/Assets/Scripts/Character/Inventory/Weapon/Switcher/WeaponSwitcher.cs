@@ -5,7 +5,7 @@ using UnityEngine;
 public class WeaponSwitcher : MonoBehaviour
 {
     private Inventory Inventory => Inventory.Instance;
-    private IReadOnlyList<Weapon> Weapons => Inventory.Weapons;
+    private Slot[] Slots => Inventory.Slots;
 
     private CharacterInput Input => Character.Instance.Input;
 
@@ -13,10 +13,22 @@ public class WeaponSwitcher : MonoBehaviour
 
     public void Init()
     {
-        Input.Inventory.Slot1.started += context => Switch(Weapons[0]);
-        Input.Inventory.Slot2.started += context => Switch(Weapons[1]);
+        Input.Inventory.Slot1.performed += context => TrySwitch(Slots[0]);
+        Input.Inventory.Slot2.performed += context => TrySwitch(Slots[1]);
 
-        Switch(Weapons[0]);
+        TrySwitch(Slots[0]);
+    }
+
+    private bool TrySwitch(Slot slot)
+    {
+        if (slot.IsAviable)
+        {
+            Switch(slot.Weapon);
+
+            return true;
+        }
+
+        return false;
     }
 
     private void Switch(Weapon newWeapon)

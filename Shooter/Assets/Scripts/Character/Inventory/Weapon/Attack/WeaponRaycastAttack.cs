@@ -2,10 +2,10 @@
 
 public abstract class WeaponRaycastAttack : WeaponAttack
 {
-    [SerializeField, Min(0)] private float _distance;
+    [SerializeField, Min(0f)] private float _distance;
     [Space]
     [SerializeField] private bool _useSpread = true;
-    [SerializeField, Min(0)] private float _spreadFactor = 0.1f;
+    [SerializeField, Min(0f)] private float _spreadFactor = 0.1f;
 
     private Vector3 CameraDirection => Character.Instance.Camera.transform.forward;
     private Vector3 CameraPosition => Character.Instance.Camera.transform.position;

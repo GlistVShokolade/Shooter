@@ -1,12 +1,11 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class WeaponSwitcherView : MonoBehaviour
 {
     [SerializeField] private WeaponSwitcher _switcher;
 
     private Inventory Inventory => Inventory.Instance;
-    private IReadOnlyList<Weapon> Weapons => Inventory.Weapons;
+    private Slot[] Slots => Inventory.Slots;
 
     private void OnEnable()
     {
@@ -20,9 +19,9 @@ public class WeaponSwitcherView : MonoBehaviour
 
     private void OnSwitch()
     {
-        foreach (var weapon in Weapons)
+        foreach (var slot in Slots)
         {
-            weapon.Disable();
+            slot.Weapon.Disable();
         }
 
         Inventory.CurrentWeapon.Enable();

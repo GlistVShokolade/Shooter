@@ -9,7 +9,6 @@ public class AidDrop : Drop
     public override void Pick()
     {
         PlayerHealth.AddHealth(_amount);
-        print($"Текущее здоровье {PlayerHealth.CurrentHealth}");
 
         DropPicked?.Invoke();
     }
