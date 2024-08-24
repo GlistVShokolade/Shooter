@@ -6,20 +6,29 @@ public class HitBox : MonoBehaviour, IWeaponVisitor
     [Space]
     [SerializeField] private ParticleSystem _particle;
 
-    public Health Health => _health;
+    protected Health Health => _health;
 
-    public GameObject SpawnDecal(Vector3 normal, Vector3 position)
+    public void Visit(RifleAttack attack, RaycastHit hit)
     {
-        return Instantiate(_particle.gameObject, position, Quaternion.LookRotation(normal));
-    }
+        ApplyDamage(attack);
 
-    public void Visit(RifleAttack rifle, RaycastHit hit)
-    {
         print("Попадание с винтовки");
     }
 
-    public void Visit(ShotgunAttack shotgun, RaycastHit hit)
+    public void Visit(ShotgunAttack attack, RaycastHit hit)
     {
+        ApplyDamage(attack);
+
         print("Попадание с дробовика");
+    }
+
+    protected void ApplyDamage(WeaponAttack attack)
+    {
+        _health.ApplyDamage(attack.Damage);
+    }
+
+    protected GameObject SpawnDecal(Vector3 normal, Vector3 position)
+    {
+        return Instantiate(_particle.gameObject, position, Quaternion.LookRotation(normal));
     }
 }

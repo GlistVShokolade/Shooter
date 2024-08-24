@@ -10,7 +10,6 @@ public class AmmoDrop : Drop
     public override void Pick()
     {
         Inventory.AddAmmo(_type, _amount);
-        print($"Вы подобрали {_amount} патрон с типом: {_type}");
 
         DropPicked?.Invoke();
     }

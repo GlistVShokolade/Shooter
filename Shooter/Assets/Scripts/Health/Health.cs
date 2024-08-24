@@ -9,6 +9,7 @@ public class Health : MonoBehaviour, IDamagable
     [SerializeField] private int _maxHealth;
 
     public int MaxHealth => _maxHealth;
+    public bool IsAlive => _currentHealth > 0f;
 
     public int CurrentHealth
     {
@@ -27,9 +28,9 @@ public class Health : MonoBehaviour, IDamagable
 
     private void Start()
     {
-        AddHealth(_startHealth);
+        CurrentHealth += _startHealth;
 
-        if (_currentHealth == 0)
+        if (IsAlive == false)
         {
             HealthIsOver?.Invoke();
         }
@@ -44,12 +45,16 @@ public class Health : MonoBehaviour, IDamagable
 
         CurrentHealth -= amount;
 
-        HealthChanged?.Invoke();
-
-        if (_currentHealth == 0)
+        if (IsAlive == false)
         {
             HealthIsOver?.Invoke();
         }
+        else
+        {
+            HealthChanged?.Invoke();
+        }
+
+        print(CurrentHealth);
     }
 
     public void AddHealth(int amount)

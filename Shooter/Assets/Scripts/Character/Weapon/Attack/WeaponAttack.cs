@@ -4,12 +4,12 @@ using UnityEngine;
 public abstract class WeaponAttack : MonoBehaviour
 {
     [Header("Weapon")]
-    [SerializeField, Min(0f)] private float _damage;
+    [SerializeField, Min(0)] private int _damage;
     [SerializeField, Min(0.01f)] private float _rate;
     [Space]
     [SerializeField] private LayerMask _searchLayers;
 
-    public float Damage => _damage;
+    public int Damage => _damage;
     protected LayerMask SearchLayers => _searchLayers;
 
     protected bool CanAttack { get; private set; } = true;

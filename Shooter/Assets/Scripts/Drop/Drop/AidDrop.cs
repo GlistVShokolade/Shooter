@@ -15,7 +15,8 @@ public class AidDrop : Drop
 
     public override bool TryPick()
     {
-        if (PlayerHealth.CurrentHealth < PlayerHealth.MaxHealth)
+        if (PlayerHealth.CurrentHealth
+            < PlayerHealth.MaxHealth)
         {
 
             Pick();

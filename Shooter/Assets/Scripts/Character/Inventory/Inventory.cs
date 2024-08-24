@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -42,7 +41,7 @@ public class Inventory : MonoBehaviour
 
     public bool HasWeapon(AmmoType ammoType)
     {
-        return _slots.Any(slot => slot.Weapon.Attack is IAmmoAttack && (slot.Weapon.Attack as IAmmoAttack).Ammo.Type == ammoType && slot.IsAviable);
+        return _slots.Any(slot => slot.IsAviable && slot.Weapon.Attack is IAmmoAttack && (slot.Weapon.Attack as IAmmoAttack).Ammo.Type == ammoType);
     }
     
     public void AddAmmo(AmmoType type, int amount)
@@ -51,19 +50,20 @@ public class Inventory : MonoBehaviour
         {
             Weapon weapon = slot.Weapon;
 
-            if ((weapon.Attack is IAmmoAttack) == false)
+            Ammo ammo = (weapon.Attack as IAmmoAttack).Ammo;
+
+            if (ammo == null)
             {
                 continue;
             }
-
-            Ammo ammo = (weapon.Attack as IAmmoAttack).Ammo;
-
             if (ammo.Type != type)
             {
                 continue;
             }
 
             ammo.AddAmmo(amount);
+
+            print($"Патроны добавлены для {slot.Weapon.Attack}");
         }
     }
 
