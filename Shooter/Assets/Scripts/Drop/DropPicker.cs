@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class DropPicker : MonoBehaviour
 {
+    [SerializeField] private Player _player;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent(out IDrop drop) == false)
@@ -9,6 +11,6 @@ public class DropPicker : MonoBehaviour
             return;
         }
 
-        drop.TryPick();
+        drop.TryPick(_player);
     }
 }
