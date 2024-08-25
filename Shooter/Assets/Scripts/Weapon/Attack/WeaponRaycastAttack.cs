@@ -6,6 +6,7 @@ public abstract class WeaponRaycastAttack : WeaponAttack
     public WeaponRaycastAttack(int damage, float rate, float distance, int shootCount, float spreadFactor, Transform cameraTransform) : base(damage, rate)
     {
         _cameraTransform = cameraTransform;
+        _spreadFactor = spreadFactor;
 
         ShootCount = shootCount;
         Distance = distance;
@@ -19,15 +20,17 @@ public abstract class WeaponRaycastAttack : WeaponAttack
 
     protected RaycastHit[] GetHits()
     {
-         Ray Ray = new Ray(_cameraTransform.position, _cameraTransform.forward + CalculateSpread());
-
         RaycastHit[] hits = new RaycastHit[ShootCount];
 
         for (int i = 0; i < ShootCount; i++)
         {
+            Ray Ray = new Ray(_cameraTransform.position, _cameraTransform.forward + CalculateSpread());
+
             Physics.Raycast(Ray, out RaycastHit hit, Distance);
 
             hits[i] = hit;
+
+            Debug.Log(i);
         }
 
         return hits;

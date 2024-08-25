@@ -44,6 +44,8 @@ public class ShotgunAttack : WeaponRaycastAttack
         {
             IWeaponVisitor visitor = ScanHit(hit);
 
+            Debug.Log("Attack performed!");
+
             if (visitor == null)
             {
                 continue;
@@ -51,8 +53,6 @@ public class ShotgunAttack : WeaponRaycastAttack
 
             Accept(visitor, hit);
         }
-
-        Debug.Log("Attack performed!");
     }
 
     private void SpendAmmo()

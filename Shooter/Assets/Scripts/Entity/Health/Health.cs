@@ -16,14 +16,17 @@ public class Health : MonoBehaviour
         private set { _currentHealth = Math.Clamp(value, 0, _maxHealth); }
     }
 
+    public bool IsDied => _currentHealth == 0;
+    public bool IsFull => _currentHealth == _maxHealth;
+
     public event Action HealthChanged;
     public event Action HealthOver;
 
     private void Start()
     {
-        AddHealth(_startHealth);
+        CurrentHealth += _startHealth;
         
-        if (_currentHealth == 0)
+        if (IsDied)
         {
             HealthOver?.Invoke();
         }
@@ -34,6 +37,11 @@ public class Health : MonoBehaviour
         if (amount < 0)
         {
             throw new ArgumentOutOfRangeException(nameof(amount));
+        }
+
+        if (IsDied)
+        {
+            return;
         }
 
         CurrentHealth += amount;
@@ -48,11 +56,16 @@ public class Health : MonoBehaviour
             throw new ArgumentOutOfRangeException(nameof(amount));
         }
 
+        if (IsDied)
+        {
+            return;
+        }
+
         CurrentHealth -= amount;
 
         HealthChanged?.Invoke();
 
-        if (_currentHealth == 0)
+        if (IsDied)
         {
             HealthOver?.Invoke();
         }
