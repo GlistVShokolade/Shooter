@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public abstract class Drop : MonoBehaviour, IDrop
+public abstract class Drop : MonoBehaviour
 {
     public Action DropPicked;
 

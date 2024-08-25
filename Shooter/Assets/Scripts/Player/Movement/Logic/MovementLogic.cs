@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class MovementLogic : IMovementLogic
+public abstract class MovementLogic
 {
     protected Vector3 MoveDirection;
 

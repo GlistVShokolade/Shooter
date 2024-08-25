@@ -16,8 +16,6 @@ public class AmmoDrop : Drop
 
         Ammo ammo = (weapon as IAmmoBehavier).Ammo;
 
-        print("Проверка патрон");
-
         if (ammo == null)
         {
             return false;
@@ -32,7 +30,7 @@ public class AmmoDrop : Drop
     {
         ammo.AddAmmo(_amount);
 
-        print($"Вы подабрали {_amount} патрон типа {_type}");
+        print($"You are pick {_amount} ammo, type of {_type}");
 
         DropPicked?.Invoke();
     }

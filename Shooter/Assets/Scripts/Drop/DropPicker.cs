@@ -6,7 +6,7 @@ public class DropPicker : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out IDrop drop) == false)
+        if (other.TryGetComponent(out Drop drop) == false)
         {
             return;
         }

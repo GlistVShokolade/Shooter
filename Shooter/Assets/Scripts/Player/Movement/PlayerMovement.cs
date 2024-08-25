@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
     private PlayerInput _input;
     private CharacterController _controller;
 
-    private IMovementLogic _currentLogic;
+    private MovementLogic _currentLogic;
 
     [SerializeField] private float _walkSpeed, _runSpeed, _jumpHeight;
 
