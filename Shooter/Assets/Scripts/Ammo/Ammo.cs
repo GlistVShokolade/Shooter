@@ -5,8 +5,13 @@ public class Ammo : MonoBehaviour
 {
     private int _currentAmmo;
 
+    [SerializeField] private AmmoType _type;
+    [Space]
     [SerializeField, Min(0)] private int _startAmmo;
     [SerializeField, Min(0)] private int _maxAmmo;
+
+    public int MaxAmmo => _maxAmmo;
+    public AmmoType Type => _type;
 
     public int CurrentAmmo
     {
