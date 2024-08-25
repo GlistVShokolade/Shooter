@@ -15,9 +15,13 @@ public class ItemHitBox : HitBox
         _rigidbody = GetComponent<Rigidbody>();
     }
 
-    public override void Visit(Rifle attack, RaycastHit hit)
+    public override void Visit(RifleAttack attack, RaycastHit hit)
     {
+        _health.TakeHealth(attack.Damage);
 
+        TryPush(-hit.normal);
+
+        print("You are got on item from rifle");
     }
 
     public override void Visit(ShotgunAttack attack, RaycastHit hit)

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    [SerializeField] private Slot[] _slots;
+    [field: SerializeField] public Slot[] Slots { get; private set; }
     [Space]
     [SerializeField] private Weapon[] _startWeapons;
 
@@ -23,12 +23,12 @@ public class Inventory : MonoBehaviour
 
     public bool HasWeapon(Weapon newWeapon)
     {
-        return _slots.Any(slot => slot.Weapon.GetType() == newWeapon.GetType() && slot.IsAvailable);
+        return Slots.Any(slot => slot.Weapon.GetType() == newWeapon.GetType() && slot.IsAvailable);
     }
 
     public Weapon GetWeapon(AmmoType ammoType)
     {
-        IEnumerable<Slot> allegedSlots = _slots.Where(slot => slot.IsAvailable && (slot.Weapon is IAmmoBehavier) && (slot.Weapon as IAmmoBehavier).Ammo.Type == ammoType);
+        IEnumerable<Slot> allegedSlots = Slots.Where(slot => slot.IsAvailable && (slot.Weapon is IAmmoBehavier) && (slot.Weapon as IAmmoBehavier).Ammo.Type == ammoType);
 
         if (allegedSlots.Count() == 0)
         {
@@ -45,7 +45,7 @@ public class Inventory : MonoBehaviour
             return;
         }
 
-        IEnumerable<Slot> allegedSlots = _slots.Where(slot => slot.IsAvailable == false && slot.Weapon.GetType() == newWeapon.GetType());
+        IEnumerable<Slot> allegedSlots = Slots.Where(slot => slot.IsAvailable == false && slot.Weapon.GetType() == newWeapon.GetType());
 
         allegedSlots.FirstOrDefault().GiveAcces();
     }

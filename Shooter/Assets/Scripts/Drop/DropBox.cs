@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class DropBox : MonoBehaviour
@@ -23,7 +24,5 @@ public class DropBox : MonoBehaviour
         {
             Instantiate(drop, _dropSpawnpoint.position, Quaternion.identity);
         }
-
-        Destroy(gameObject);
     }
 }
