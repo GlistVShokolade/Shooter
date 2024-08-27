@@ -2,7 +2,7 @@ using System.Threading.Tasks;
 
 public abstract class WeaponAttack : IWeaponAttack
 {
-    public WeaponAttack(int damage, float rate)
+    public WeaponAttack(float damage, float rate)
     {
         Input = new PlayerInput();
 
@@ -19,7 +19,7 @@ public abstract class WeaponAttack : IWeaponAttack
 
     protected bool CanAttack { get; private set; } = true;
 
-    public int Damage { get; }
+    public float Damage { get; }
     public float Rate { get; }
 
     public PlayerInput Input { get; }

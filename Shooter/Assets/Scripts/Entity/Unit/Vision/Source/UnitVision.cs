@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public abstract class UnitVision : MonoBehaviour
+public class UnitVision : MonoBehaviour
 {
     public event Action<Player> PlayerDetected;
     public event Action<Player> PlayerLosted;

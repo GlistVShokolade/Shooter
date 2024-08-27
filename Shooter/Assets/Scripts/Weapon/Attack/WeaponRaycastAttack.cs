@@ -3,7 +3,7 @@ using UnityEngine;
 
 public abstract class WeaponRaycastAttack : WeaponAttack
 {
-    public WeaponRaycastAttack(int damage, float rate, float distance, int shootCount, float spreadFactor, Transform cameraTransform) : base(damage, rate)
+    public WeaponRaycastAttack(float damage, float rate, float distance, int shootCount, float spreadFactor, Transform cameraTransform) : base(damage, rate)
     {
         _cameraTransform = cameraTransform;
         _spreadFactor = spreadFactor;

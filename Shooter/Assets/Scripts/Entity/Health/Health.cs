@@ -3,19 +3,18 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    private int _currentHealth;
+    private float _currentHealth;
 
-    [SerializeField, Min(0)] private int _startHealth;
-    [SerializeField, Min(0)] private int _maxHealth;
+    [SerializeField, Min(0f)] private float _startHealth;
+    [SerializeField, Min(0f)] private float _maxHealth;
 
-    public int MaxHealth => _maxHealth;
-
-    public int CurrentHealth
+    public float CurrentHealth
     {
         get { return _currentHealth; }
         private set { _currentHealth = Math.Clamp(value, 0, _maxHealth); }
     }
 
+    public float MaxHealth => _maxHealth;
     public bool IsDied => _currentHealth == 0;
     public bool IsFull => _currentHealth == _maxHealth;
 
@@ -32,7 +31,7 @@ public class Health : MonoBehaviour
         }
     }
 
-    public void AddHealth(int amount)
+    public void AddHealth(float amount)
     {
         if (amount < 0)
         {
@@ -49,7 +48,7 @@ public class Health : MonoBehaviour
         HealthChanged?.Invoke();
     }
 
-    public void TakeHealth(int amount)
+    public void TakeHealth(float amount)
     {
         if (amount < 0)
         {

@@ -10,7 +10,7 @@ public class Rifle : Weapon, IAttackBehavier, IAmmoBehavier
     [Space]
     [SerializeField] private AmmoSpendType _spendType;
     [Space]
-    [SerializeField, Min(0)] private int _damage;
+    [SerializeField, Min(0f)] private float _damage;
     [SerializeField, Min(0f)] private float _rate;
     [SerializeField, Min(0f)] private float _spreadFactor;
     [SerializeField, Min(0)] private int _shootCount;

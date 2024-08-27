@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class RifleAttack : WeaponRaycastAttack
 {
-    public RifleAttack(int damage, float rate, float distance, int shootCount, float spreadFactor, AmmoSpendType spendType, Transform cameraTransform, Ammo ammo) : base(damage, rate, distance, shootCount, spreadFactor, cameraTransform)
+    public RifleAttack(float damage, float rate, float distance, int shootCount, float spreadFactor, AmmoSpendType spendType, Transform cameraTransform, Ammo ammo) : base(damage, rate, distance, shootCount, spreadFactor, cameraTransform)
     {
         _ammo = ammo;
         _spendType = spendType;
