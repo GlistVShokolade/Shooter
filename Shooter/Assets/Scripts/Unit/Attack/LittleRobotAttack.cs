@@ -5,9 +5,9 @@ public class LittleRobotAttack : UnitAttack
 {
     private readonly float _distance;
 
-    private float DistanceToTarget => Vector3.Distance(Vision.Transform.position, Target.transform.position);
+    private float DistanceToTarget => Vector3.Magnitude(Transform.position - Target.transform.position);
 
-    public LittleRobotAttack(float damage, float rate, float distance, UnitVision vision, MonoBehaviour context) : base(damage, rate, vision, context)
+    public LittleRobotAttack(float damage, float rate, float distance, UnitVision vision, Transform transform, MonoBehaviour context) : base(damage, rate, transform, vision, context)
     {
         _distance = distance;
     }

@@ -13,15 +13,17 @@ public abstract class UnitAttack
     private MonoBehaviour Context { get; }
 
     protected Player Target { get; private set; }
-
     protected Coroutine Coroutine { get; private set; }
+
+    public Transform Transform { get; }
     protected UnitVision Vision { get; }
 
-    public UnitAttack(float damage, float rate, UnitVision vision, MonoBehaviour context)
+    public UnitAttack(float damage, float rate, Transform transform, UnitVision vision, MonoBehaviour context)
     {
         Damage = damage;
         Rate = rate;
 
+        Transform = transform;
         Vision = vision;
         Context = context;
 

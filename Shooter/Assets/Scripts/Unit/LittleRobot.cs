@@ -13,7 +13,7 @@ public class LittleRobot : Unit
         var agent = GetComponent<NavMeshAgent>();
 
         _vision = new UnitVision(20f, 3f, transform);
-        _attack = new LittleRobotAttack(10f, 1f, 10f, _vision, this);
+        _attack = new LittleRobotAttack(10f, 1f, 10f, _vision, transform, this);
         _move = new LittleRobotMove(3f, 8f, _vision, agent);
     }
 

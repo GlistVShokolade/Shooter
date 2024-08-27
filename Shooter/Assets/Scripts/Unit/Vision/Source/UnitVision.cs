@@ -33,7 +33,7 @@ public class UnitVision
                     continue;
                 }
 
-                float distance = Vector3.Distance(Transform.position, player.transform.position);
+                float distance = Vector3.Magnitude(Transform.position - player.transform.position);
 
                 if (distance > _viewRadius)
                 {
