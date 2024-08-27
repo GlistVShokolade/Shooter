@@ -46,6 +46,8 @@ public class Health : MonoBehaviour
         CurrentHealth += amount;
 
         HealthChanged?.Invoke();
+
+        print($"Current health {_currentHealth}");
     }
 
     public void TakeHealth(float amount)
@@ -68,5 +70,7 @@ public class Health : MonoBehaviour
         {
             HealthOver?.Invoke();
         }
+
+        print($"Current health {_currentHealth}");
     }
 }

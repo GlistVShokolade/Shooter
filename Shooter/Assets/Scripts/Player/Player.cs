@@ -11,4 +11,14 @@ public class Player : MonoBehaviour
         Inventory.Init();
         WeaponSwitcher.Init();
     }
+
+    private void OnEnable()
+    {
+        PlayerBuffer.Register(this);
+    }
+
+    private void OnDisable()
+    {
+        PlayerBuffer.Unregister(this);
+    }
 }

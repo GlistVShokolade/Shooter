@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 51036126}
   - component: {fileID: 51036127}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Rifle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -186,10 +186,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 180047299}
+  - component: {fileID: 180047307}
   - component: {fileID: 180047303}
   - component: {fileID: 180047302}
   - component: {fileID: 180047301}
-  m_Layer: 0
+  - component: {fileID: 180047305}
+  m_Layer: 6
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -205,7 +207,7 @@ Transform:
   m_GameObject: {fileID: 180047298}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.25, y: 1, z: 12.25}
+  m_LocalPosition: {x: -10.39, y: 1, z: 6.36}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -262,6 +264,40 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &180047305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 180047298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6911aa27268e9a449ab0b0c48730f1f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!195 &180047307
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 180047298}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3
+  m_Acceleration: 8
+  avoidancePriority: 1
+  m_AngularSpeed: 120
+  m_StoppingDistance: 5
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 1
+  m_WalkableMask: 1
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &319447689
 GameObject:
   m_ObjectHideFlags: 0
@@ -273,7 +309,7 @@ GameObject:
   - component: {fileID: 319447690}
   - component: {fileID: 319447692}
   - component: {fileID: 319447691}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Picker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -460,7 +496,7 @@ GameObject:
   - component: {fileID: 493048336}
   - component: {fileID: 493048338}
   - component: {fileID: 493048337}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -574,7 +610,7 @@ GameObject:
   - component: {fileID: 657916477}
   - component: {fileID: 657916478}
   - component: {fileID: 657916479}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Weapons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -636,7 +672,7 @@ GameObject:
   - component: {fileID: 676860123}
   - component: {fileID: 676860125}
   - component: {fileID: 676860124}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ammo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -698,7 +734,7 @@ GameObject:
   - component: {fileID: 704473471}
   - component: {fileID: 704473473}
   - component: {fileID: 704473472}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: AmmoText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -913,10 +949,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 868937020}
+  - component: {fileID: 868937025}
   - component: {fileID: 868937022}
   - component: {fileID: 868937023}
   - component: {fileID: 868937024}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -932,7 +969,7 @@ Transform:
   m_GameObject: {fileID: 868937019}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 3.51, y: 1, z: -5.91}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -999,6 +1036,22 @@ MonoBehaviour:
   _walkSpeed: 3
   _runSpeed: 5
   _jumpHeight: 5
+--- !u!208 &868937025
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 868937019}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &881468851
 GameObject:
   m_ObjectHideFlags: 0
@@ -1010,7 +1063,7 @@ GameObject:
   - component: {fileID: 881468852}
   - component: {fileID: 881468854}
   - component: {fileID: 881468853}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ammo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1071,7 +1124,7 @@ GameObject:
   m_Component:
   - component: {fileID: 913495101}
   - component: {fileID: 913495102}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Inventory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1219,7 +1272,7 @@ GameObject:
   - component: {fileID: 1023068055}
   - component: {fileID: 1023068057}
   - component: {fileID: 1023068056}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: AmmoText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1353,7 +1406,7 @@ GameObject:
   - component: {fileID: 1055581267}
   - component: {fileID: 1055581270}
   - component: {fileID: 1055581269}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1629,7 +1682,7 @@ MonoBehaviour:
   m_Center: {x: 0, y: 2, z: 0}
   m_LayerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1
   m_UseGeometry: 1
   m_DefaultArea: 0
   m_GenerateLinks: 0
@@ -1673,7 +1726,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1385416284}
   - component: {fileID: 1385416285}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Slot2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1780,7 +1833,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1581918510}
   - component: {fileID: 1581918511}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Shotgun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1835,7 +1888,7 @@ GameObject:
   - component: {fileID: 1808768852}
   - component: {fileID: 1808768854}
   - component: {fileID: 1808768853}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1919,7 +1972,7 @@ GameObject:
   - component: {fileID: 1897701730}
   - component: {fileID: 1897701732}
   - component: {fileID: 1897701731}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Health
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1967,7 +2020,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 821f9ea534cdac4409099d6aae298bdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startHealth: 10
+  _startHealth: 100
   _maxHealth: 100
 --- !u!1 &1944698473
 GameObject:
@@ -1980,8 +2033,7 @@ GameObject:
   - component: {fileID: 1944698477}
   - component: {fileID: 1944698476}
   - component: {fileID: 1944698475}
-  - component: {fileID: 1944698478}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2047,28 +2099,12 @@ Transform:
   m_GameObject: {fileID: 1944698473}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.835, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 868937020}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!208 &1944698478
-NavMeshObstacle:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1944698473}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 0
-  m_Extents: {x: 0.5, y: 1, z: 0.5}
-  m_MoveThreshold: 0.1
-  m_Carve: 0
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 0, z: 0}
-  m_TimeToStationary: 0.5
 --- !u!1 &1980728117
 GameObject:
   m_ObjectHideFlags: 0
@@ -2082,7 +2118,7 @@ GameObject:
   - component: {fileID: 1980728119}
   - component: {fileID: 1980728118}
   - component: {fileID: 1980728122}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -2222,6 +2258,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerTransform: {fileID: 868937020}
   _sensitivity: 10
+--- !u!1 &2032902295
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2032902296}
+  m_Layer: 0
+  m_Name: ==== Player ====
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2032902296
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2032902295}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2088476180
 GameObject:
   m_ObjectHideFlags: 0
@@ -2232,7 +2299,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2088476181}
   - component: {fileID: 2088476182}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Slot1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2485,8 +2552,9 @@ SceneRoots:
   - {fileID: 410087041}
   - {fileID: 832575519}
   - {fileID: 1251968504}
-  - {fileID: 1465772960}
+  - {fileID: 2032902296}
   - {fileID: 868937020}
+  - {fileID: 1465772960}
   - {fileID: 180047299}
   - {fileID: 534167866}
   - {fileID: 1193473007}
