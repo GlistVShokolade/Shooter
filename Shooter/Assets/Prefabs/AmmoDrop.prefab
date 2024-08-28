@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7744918797252897157}
   - component: {fileID: 7705488393368885660}
   - component: {fileID: 8915691224558614045}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 4018012466722098334}
   - component: {fileID: 8941671683158473509}
   - component: {fileID: 4278160809214647063}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: AmmoDrop
   m_TagString: Untagged
   m_Icon: {fileID: 0}

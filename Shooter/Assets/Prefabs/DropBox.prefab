@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7246622484989709521}
   - component: {fileID: 4045184794842067109}
   - component: {fileID: 1604878145950578486}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3314627212158118701}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Spawnpoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 1399211134114653270}
   - component: {fileID: 6243755696559761940}
   - component: {fileID: 6994850737340380559}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: DropBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -264,6 +264,8 @@ MonoBehaviour:
   _drop:
   - {fileID: 1698754281265399926, guid: bba3bad6db79e974784eb9a4ac4abe61, type: 3}
   - {fileID: 8941671683158473509, guid: f685b7450e917124abe6183a66a4810e, type: 3}
+  _useRandom: 1
+  _spawnSteps: 3
 --- !u!114 &6994850737340380559
 MonoBehaviour:
   m_ObjectHideFlags: 0

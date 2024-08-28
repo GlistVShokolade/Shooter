@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 504823013013127354}
   - component: {fileID: 1698754281265399926}
   - component: {fileID: 1550691134648538633}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: AidDrop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -160,7 +160,7 @@ GameObject:
   - component: {fileID: 291556503779994894}
   - component: {fileID: 7067705254717372665}
   - component: {fileID: 5066190464594253368}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
