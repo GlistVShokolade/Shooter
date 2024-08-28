@@ -14,10 +14,6 @@ public class LittleRobotAttack : UnitAttack
 
     public override bool TryAttack()
     {
-        if (Target.Health.IsDied)
-        {
-            return false;
-        }
         if (Coroutine != null)
         {
             return false;

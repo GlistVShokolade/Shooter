@@ -26,7 +26,7 @@ public class UnitFactory : Factory<Unit, Unit>
         if (Buffer.Contains(obj) == false)
         {
             throw new KeyNotFoundException(nameof(obj));
-        }
+        }       
 
         Buffer.Remove(obj);
     }
