@@ -15,7 +15,8 @@ public class Health : MonoBehaviour
     }
 
     public float MaxHealth => _maxHealth;
-    public bool IsDied => _currentHealth == 0;
+
+    public bool IsDied => _currentHealth == 0f;
     public bool IsFull => _currentHealth == _maxHealth;
 
     public event Action HealthChanged;
@@ -37,7 +38,6 @@ public class Health : MonoBehaviour
         {
             throw new ArgumentOutOfRangeException(nameof(amount));
         }
-
         if (IsDied)
         {
             return;
@@ -46,8 +46,6 @@ public class Health : MonoBehaviour
         CurrentHealth += amount;
 
         HealthChanged?.Invoke();
-
-        print($"Current health {_currentHealth}");
     }
 
     public void TakeHealth(float amount)
@@ -56,7 +54,6 @@ public class Health : MonoBehaviour
         {
             throw new ArgumentOutOfRangeException(nameof(amount));
         }
-
         if (IsDied)
         {
             return;
@@ -64,13 +61,13 @@ public class Health : MonoBehaviour
 
         CurrentHealth -= amount;
 
-        HealthChanged?.Invoke();
-
         if (IsDied)
         {
             HealthOver?.Invoke();
         }
-
-        print($"Current health {_currentHealth}");
+        else
+        {
+            HealthChanged?.Invoke();
+        }
     }
 }

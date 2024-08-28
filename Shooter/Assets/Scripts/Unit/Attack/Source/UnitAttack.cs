@@ -4,15 +4,18 @@ using UnityEngine;
 
 public abstract class UnitAttack
 {
+    private readonly WaitForSeconds _delay;
+    private readonly MonoBehaviour _context;
+
+    private Coroutine _coroutine;
+
+    protected bool CoroutineStarted => _coroutine != null;
     protected bool CanAttack { get; private set; } = true;
 
     protected float Damage { get; }
     protected float Rate { get; }
 
-    private MonoBehaviour Context { get; }
-
     protected Transform Transform { get; }
-    protected Coroutine Coroutine { get; private set; }
     protected UnitVision Vision { get; }
 
     protected Player Target { get; private set; }
@@ -24,7 +27,9 @@ public abstract class UnitAttack
 
         Transform = transform;
         Vision = vision;
-        Context = context;
+
+        _context = context;
+        _delay = new WaitForSeconds(Rate);
 
         vision.PlayerDetected += OnTargetDetect;
         vision.PlayerLosted += OnTargetLost;
@@ -38,19 +43,19 @@ public abstract class UnitAttack
 
     protected void Start(Player player)
     {
-        Coroutine = Context.StartCoroutine(Attack());
+        _coroutine = _context.StartCoroutine(Attack());
     }
 
     protected void Stop()
     {
-        if (Coroutine == null)
+        if (_coroutine == null)
         {
             return;
         }
 
-        Context.StopCoroutine(Coroutine);
+        _context.StopCoroutine(_coroutine);
 
-        Coroutine = null;
+        _coroutine = null;
     }
 
     protected void SetTarget(Player player)
@@ -67,7 +72,7 @@ public abstract class UnitAttack
     {
         CanAttack = false;
 
-        yield return new WaitForSeconds(Rate);
+        yield return _delay;
 
         CanAttack = true;
     }

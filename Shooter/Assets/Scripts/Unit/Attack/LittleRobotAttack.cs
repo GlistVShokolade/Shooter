@@ -14,7 +14,7 @@ public class LittleRobotAttack : UnitAttack
 
     public override bool TryAttack()
     {
-        if (Coroutine != null)
+        if (CoroutineStarted)
         {
             return false;
         }
