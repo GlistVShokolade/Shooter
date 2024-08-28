@@ -11,11 +11,11 @@ public abstract class UnitAttack
 
     private MonoBehaviour Context { get; }
 
-    protected Player Target { get; private set; }
+    protected Transform Transform { get; }
     protected Coroutine Coroutine { get; private set; }
-
-    public Transform Transform { get; }
     protected UnitVision Vision { get; }
+
+    protected Player Target { get; private set; }
 
     public UnitAttack(float damage, float rate, Transform transform, UnitVision vision, MonoBehaviour context)
     {
